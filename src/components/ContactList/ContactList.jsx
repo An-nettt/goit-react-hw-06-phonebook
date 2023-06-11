@@ -1,12 +1,8 @@
-import { useSelector } from 'react-redux';
 // import PropTypes from 'prop-types';
 import ContactListElem from '../ContactListElem';
 import { ContactListWrapper } from '../../styled';
-import { getContacts } from 'redux/selectors';
 
-const ContactList = () => {
-  const contacts = useSelector(getContacts);
-
+const ContactList = ({ contacts }) => {
   return (
     <ContactListWrapper>
       {contacts.map(({ id, name, number }) => (

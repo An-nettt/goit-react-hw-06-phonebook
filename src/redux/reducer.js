@@ -19,7 +19,7 @@ export const rootReducer = (state = initialState, action) => {
     case 'filter/changeFilter':
       return {
         ...state,
-        filter: [...state.filter, action.payload],
+        filter: [action.payload],
       };
     default:
       return state;

@@ -1,5 +1,4 @@
 export const addToContacts = ({ id, name, number }) => {
-  console.log(id, name, number);
   return {
     type: 'contacts/addContact',
     payload: {

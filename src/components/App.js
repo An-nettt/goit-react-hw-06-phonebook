@@ -1,16 +1,31 @@
 // import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { getContacts, getFilter } from 'redux/selectors';
+import { changeFilter } from 'redux/actions';
 
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
 import Filter from './Filter';
 
 import { Wrapper, Title, ContactsTitle } from '../styled';
-import { getContacts } from 'redux/selectors';
 
 export default function App() {
   const contacts = useSelector(getContacts);
-  console.log(contacts);
+  const filterContact = useSelector(getFilter);
+  const dispatch = useDispatch();
+
+  const onChangeFilter = event => dispatch(changeFilter(event.target.value));
+
+  const getVisibleContacts = () => {
+    const normalizedFilter = String(filterContact).toLowerCase();
+
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
+  };
+
+  const filterContacts = getVisibleContacts();
 
   return (
     <Wrapper>
@@ -18,12 +33,8 @@ export default function App() {
       <ContactForm />
 
       <ContactsTitle>Contacts</ContactsTitle>
-      <Filter />
-      <ContactList />
+      <Filter onChange={onChangeFilter} />
+      <ContactList contacts={filterContacts} />
     </Wrapper>
   );
 }
-
-// {
-//   /* <ContactList contacts={filterContacts} />; */
-// }
