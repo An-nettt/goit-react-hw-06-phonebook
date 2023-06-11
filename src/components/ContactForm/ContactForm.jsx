@@ -13,9 +13,6 @@ const ContactForm = () => {
     dispatch(
       addToContacts(form.elements.name.value, form.elements.number.value)
     );
-    console.log(form.elements.name.value, form.elements.number.value);
-
-    // onSubmit(name, number);
     form.reset();
   };
 

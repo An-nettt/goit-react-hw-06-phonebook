@@ -29,10 +29,6 @@ export default function App() {
   //   setFilter(event.currentTarget.value);
   // };
 
-  // const deleteContact = id => {
-  //   setContacts(() => contacts.filter(contact => contact.id !== id));
-  // };
-
   // const getVisibleContacts = () => {
   //   const normalizedFilter = filter.toLowerCase();
 

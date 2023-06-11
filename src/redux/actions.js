@@ -12,7 +12,16 @@ export const addToContacts = (name, number) => {
   };
 };
 
-// const deleteContact = {
-//   type: 'contacts/deleteContact',
-//   payload: 'id',
-// };
+export const deleteContact = id => {
+  return {
+    type: 'contacts/deleteContact',
+    payload: id,
+  };
+};
+
+export const changeFilter = value => {
+  return {
+    type: 'filters/changeFilter',
+    payload: value,
+  };
+};

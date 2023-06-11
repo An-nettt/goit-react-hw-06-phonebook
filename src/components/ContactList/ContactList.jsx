@@ -6,15 +6,11 @@ import { getContacts } from 'redux/selectors';
 
 const ContactList = () => {
   const contacts = useSelector(getContacts);
-  console.log(contacts);
 
   return (
     <ContactListWrapper>
       {contacts.map(({ id, name, number }) => (
-        <ContactListElem
-          contactsEl={{ id, name, number }}
-          // onDeleteContact={onDeleteContact}
-        />
+        <ContactListElem contactsEl={{ id, name, number }} />
       ))}
     </ContactListWrapper>
   );
