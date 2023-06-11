@@ -1,11 +1,9 @@
-import { nanoid } from 'nanoid';
-
-export const addToContacts = (name, number) => {
-  console.log(name, number);
+export const addToContacts = ({ id, name, number }) => {
+  console.log(id, name, number);
   return {
     type: 'contacts/addContact',
     payload: {
-      id: nanoid(),
+      id,
       name,
       number,
     },
@@ -21,7 +19,7 @@ export const deleteContact = id => {
 
 export const changeFilter = value => {
   return {
-    type: 'filters/changeFilter',
+    type: 'filter/changeFilter',
     payload: value,
   };
 };

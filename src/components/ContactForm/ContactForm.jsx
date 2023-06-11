@@ -1,18 +1,36 @@
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { nanoid } from 'nanoid';
 // import PropTypes from 'prop-types';
 
+import { getContacts } from 'redux/selectors';
 import { addToContacts } from 'redux/actions';
+
 import { PhonebookForm, Text, Input, Button } from '../../styled';
 
 const ContactForm = () => {
+  const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
 
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.target;
-    dispatch(
-      addToContacts(form.elements.name.value, form.elements.number.value)
+
+    const newContact = {
+      id: nanoid(),
+      name: form.elements.name.value,
+      number: form.elements.number.value,
+    };
+
+    const auditContacts = contacts.filter(contact =>
+      contact.name.includes(newContact.name)
     );
+
+    if (auditContacts.length === 0) {
+      dispatch(addToContacts(newContact));
+    } else {
+      alert(`${newContact.name} is already in contacts.`);
+    }
+
     form.reset();
   };
 

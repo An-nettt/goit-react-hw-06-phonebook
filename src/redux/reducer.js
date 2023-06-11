@@ -16,13 +16,10 @@ export const rootReducer = (state = initialState, action) => {
         ),
       };
 
-    case 'filters/setStatusFilter':
+    case 'filter/changeFilter':
       return {
         ...state,
-        filters: {
-          ...state.filters,
-          status: action.payload,
-        },
+        filter: [...state.filter, action.payload],
       };
     default:
       return state;

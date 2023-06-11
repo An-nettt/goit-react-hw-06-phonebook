@@ -7,7 +7,6 @@ const ContactListElem = ({ contactsEl }) => {
   const dispatch = useDispatch();
 
   const onDeleteContact = () => dispatch(deleteContact(contactsEl.id));
-  console.log(onDeleteContact);
 
   return (
     <>
