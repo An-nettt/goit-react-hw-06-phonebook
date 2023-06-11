@@ -1,33 +1,22 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+// import PropTypes from 'prop-types';
+
+import { addToContacts } from 'redux/actions';
 import { PhonebookForm, Text, Input, Button } from '../../styled';
 
-function ContactForm({ onSubmit }) {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
-
-  const addContact = event => {
-    const { name, value } = event.target;
-    switch (name) {
-      case 'name':
-        setName(value);
-        break;
-
-      case 'number':
-        setNumber(value);
-        break;
-
-      default:
-        break;
-    }
-  };
+const ContactForm = () => {
+  const dispatch = useDispatch();
 
   const handleSubmit = event => {
     event.preventDefault();
+    const form = event.target;
+    dispatch(
+      addToContacts(form.elements.name.value, form.elements.number.value)
+    );
+    console.log(form.elements.name.value, form.elements.number.value);
 
-    onSubmit(name, number);
-    setName('');
-    setNumber('');
+    // onSubmit(name, number);
+    form.reset();
   };
 
   return (
@@ -36,8 +25,6 @@ function ContactForm({ onSubmit }) {
       <Input
         type="text"
         name="name"
-        value={name}
-        onChange={addContact}
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
@@ -46,8 +33,6 @@ function ContactForm({ onSubmit }) {
       <Input
         type="tel"
         name="number"
-        value={number}
-        onChange={addContact}
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
@@ -55,10 +40,10 @@ function ContactForm({ onSubmit }) {
       <Button type="submit">Add contact</Button>
     </PhonebookForm>
   );
-}
+};
 export default ContactForm;
 
-ContactForm.propTypes = {
-  name: PropTypes.string,
-  number: PropTypes.number,
-};
+// ContactForm.propTypes = {
+//   name: PropTypes.string,
+//   number: PropTypes.number,
+// };
