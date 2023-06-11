@@ -1,6 +1,7 @@
-import { initialState } from './initialState';
+import { combineReducers } from 'redux';
+import { contactsInitialState, filtersInitialState } from './initialState';
 
-export const rootReducer = (state = initialState, action) => {
+export const contactsReducer = (state = contactsInitialState, action) => {
   switch (action.type) {
     case 'contacts/addContact': {
       return {
@@ -25,3 +26,20 @@ export const rootReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export const filtersReducer = (state = filtersInitialState, action) => {
+  switch (action.type) {
+    case 'filter/changeFilter':
+      return {
+        ...state,
+        filter: [action.payload],
+      };
+    default:
+      return state;
+  }
+};
+
+export const rootReducer = combineReducers({
+  contacts: contactsReducer,
+  filters: filtersReducer,
+});
