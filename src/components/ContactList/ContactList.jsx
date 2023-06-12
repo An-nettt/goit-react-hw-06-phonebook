@@ -1,9 +1,8 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import ContactListElem from '../ContactListElem';
 import { ContactListWrapper } from '../../styled';
 
 const ContactList = ({ contacts }) => {
-  // console.log(contacts);
   return (
     <ContactListWrapper>
       {contacts.map(({ id, name, number }) => (
@@ -15,10 +14,10 @@ const ContactList = ({ contacts }) => {
 
 export default ContactList;
 
-// ContactList.propTypes = {
-//   contactsArrayOf: PropTypes.arrayOf(PropTypes.string),
-//   onDeleteContact: PropTypes.func.isRequired,
-//   id: PropTypes.string.isRequired,
-//   name: PropTypes.string.isRequired,
-//   number: PropTypes.number.isRequired,
-// };
+ContactList.propTypes = {
+  contactsArrayOf: PropTypes.arrayOf(PropTypes.string),
+  onDeleteContact: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.number.isRequired,
+};

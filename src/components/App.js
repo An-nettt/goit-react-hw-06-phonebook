@@ -13,7 +13,6 @@ import { Wrapper, Title, ContactsTitle } from '../styled';
 
 export default function App() {
   const contacts = useSelector(getContacts);
-  // console.log(contacts);
   const filterContact = useSelector(getFilter);
 
   const dispatch = useDispatch();
@@ -29,7 +28,6 @@ export default function App() {
   };
 
   const filterContacts = getVisibleContacts();
-  // console.log(filterContacts);
 
   return (
     <Wrapper>
