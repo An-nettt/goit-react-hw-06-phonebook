@@ -2,7 +2,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getContacts, getFilter } from 'redux/selectors';
-import { changeFilter } from 'redux/actions';
+import { changeFilter } from 'redux/filter/filterSlice';
+// import { changeFilter } from 'redux/actions';
 
 import ContactForm from './ContactForm';
 import ContactList from './ContactList/ContactList';

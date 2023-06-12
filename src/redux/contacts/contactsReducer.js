@@ -1,15 +1,15 @@
-import { createReducer } from '@reduxjs/toolkit';
-import { contactsInitialState } from './contactsInitialState';
-import { addToContacts, deleteContact } from 'redux/actions';
+// import { createReducer } from '@reduxjs/toolkit';
+// import { contactsInitialState } from './contactsInitialState';
+// import { addToContacts, deleteContact } from 'redux/actions';
 
-export const contactsReducer = createReducer(contactsInitialState, {
-  [addToContacts]: (state, action) => {
-    state.push(action.payload);
-  },
-  [deleteContact]: (state, action) => {
-    return state.filter(contact => contact.id !== action.payload);
-  },
-});
+// export const contactsReducer = createReducer(contactsInitialState, {
+//   [addToContacts]: (state, action) => {
+//     state.push(action.payload);
+//   },
+//   [deleteContact]: (state, action) => {
+//     return state.filter(contact => contact.id !== action.payload);
+//   },
+// });
 
 // export const contactsReducer = (state = contactsInitialState, action) => {
 //   switch (action.type) {

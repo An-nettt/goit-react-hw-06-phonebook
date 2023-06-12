@@ -3,8 +3,8 @@ import { nanoid } from 'nanoid';
 // import PropTypes from 'prop-types';
 
 import { getContacts } from 'redux/selectors';
-import { addToContacts } from 'redux/actions';
-
+// import { addToContacts } from 'redux/actions';
+import { addToContacts } from 'redux/contacts/contactsSlice';
 import { PhonebookForm, Text, Input, Button } from '../../styled';
 
 const ContactForm = () => {

@@ -1,12 +1,12 @@
-import { createReducer } from '@reduxjs/toolkit';
-import { filterInitialState } from './filterInitialState';
-import { changeFilter } from 'redux/actions';
+// import { createReducer } from '@reduxjs/toolkit';
+// import { filterInitialState } from './filterInitialState';
+// import { changeFilter } from 'redux/actions';
 
-export const filterReducer = createReducer(filterInitialState, {
-  [changeFilter]: (state, action) => {
-    return action.payload;
-  },
-});
+// export const filterReducer = createReducer(filterInitialState, {
+//   [changeFilter]: (state, action) => {
+//     return action.payload;
+//   },
+// });
 
 // export const filterReducer = (state = filterInitialState, action) => {
 //   switch (action.type) {

@@ -1,4 +1,4 @@
-import { createAction } from '@reduxjs/toolkit';
+// import { createAction } from '@reduxjs/toolkit';
 
 // export const addToContacts = ({ id, name, number }) => {
 //   return {
@@ -11,7 +11,7 @@ import { createAction } from '@reduxjs/toolkit';
 //   };
 // };
 
-export const addToContacts = createAction('contacts/addContact');
+// export const addToContacts = createAction('contacts/addContact');
 
 // export const deleteContact = id => {
 //   return {
@@ -20,7 +20,7 @@ export const addToContacts = createAction('contacts/addContact');
 //   };
 // };
 
-export const deleteContact = createAction('contacts/deleteContact');
+// export const deleteContact = createAction('contacts/deleteContact');
 
 // export const changeFilter = value => {
 //   return {
@@ -29,4 +29,4 @@ export const deleteContact = createAction('contacts/deleteContact');
 //   };
 // };
 
-export const changeFilter = createAction('filter/changeFilter');
+// export const changeFilter = createAction('filter/changeFilter');
