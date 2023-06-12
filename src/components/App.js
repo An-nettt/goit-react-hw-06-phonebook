@@ -5,14 +5,16 @@ import { getContacts, getFilter } from 'redux/selectors';
 import { changeFilter } from 'redux/actions';
 
 import ContactForm from './ContactForm';
-import ContactList from './ContactList';
+import ContactList from './ContactList/ContactList';
 import Filter from './Filter';
 
 import { Wrapper, Title, ContactsTitle } from '../styled';
 
 export default function App() {
   const contacts = useSelector(getContacts);
+  // console.log(contacts);
   const filterContact = useSelector(getFilter);
+
   const dispatch = useDispatch();
 
   const onChangeFilter = event => dispatch(changeFilter(event.target.value));
@@ -26,6 +28,7 @@ export default function App() {
   };
 
   const filterContacts = getVisibleContacts();
+  // console.log(filterContacts);
 
   return (
     <Wrapper>

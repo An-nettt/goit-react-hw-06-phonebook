@@ -3,6 +3,7 @@ import ContactListElem from '../ContactListElem';
 import { ContactListWrapper } from '../../styled';
 
 const ContactList = ({ contacts }) => {
+  // console.log(contacts);
   return (
     <ContactListWrapper>
       {contacts.map(({ id, name, number }) => (
