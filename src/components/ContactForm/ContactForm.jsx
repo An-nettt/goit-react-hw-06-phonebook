@@ -3,7 +3,6 @@ import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 
 import { getContacts } from 'redux/selectors';
-// import { addToContacts } from 'redux/actions';
 import { addToContacts } from 'redux/contacts/contactsSlice';
 import { PhonebookForm, Text, Input, Button } from '../../styled';
 
@@ -21,15 +20,15 @@ const ContactForm = () => {
       number: form.elements.number.value,
     };
 
-    const auditContacts = contacts.filter(contact =>
-      contact.name.includes(newContact.name)
+    const auditContacts = contacts.filter(
+      contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
     );
 
-    if (auditContacts.length === 0) {
-      dispatch(addToContacts(newContact));
-    } else {
+    if (auditContacts === 0) {
       alert(`${newContact.name} is already in contacts.`);
+      return;
     }
+    dispatch(addToContacts(newContact));
 
     form.reset();
   };

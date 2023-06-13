@@ -1,11 +1,28 @@
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+
+import { getContacts, getFilter } from 'redux/selectors';
 import ContactListElem from '../ContactListElem';
+
 import { ContactListWrapper } from '../../styled';
 
-const ContactList = ({ contacts }) => {
+const ContactList = () => {
+  const contacts = useSelector(getContacts);
+  const filterContact = useSelector(getFilter);
+
+  const getVisibleContacts = () => {
+    const normalizedFilter = String(filterContact).toLowerCase();
+
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
+  };
+
+  const filterContacts = getVisibleContacts();
+
   return (
     <ContactListWrapper>
-      {contacts.map(({ id, name, number }) => (
+      {filterContacts.map(({ id, name, number }) => (
         <ContactListElem contactsEl={{ id, name, number }} />
       ))}
     </ContactListWrapper>

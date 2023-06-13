@@ -11,10 +11,6 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { reducer } from './reducer';
-// import { createStore } from 'redux';
-// import { devToolsEnhancer } from '@redux-devtools/extension';
-// import { contactsReducer } from './contacts/contactsReducer';
-// import { filterReducer } from './filter/filterReducer';
 
 const persistConfig = {
   key: 'contacts',
@@ -35,10 +31,3 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-
-// export const store = configureStore({
-//   reducer: {
-//     contacts: contactsReducer,
-//     filter: filterReducer,
-//   },
-// });

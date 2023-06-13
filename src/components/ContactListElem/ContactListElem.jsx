@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { ContactListEl, Text, ButtonDel } from '../../styled';
-// import { deleteContact } from 'redux/actions';
+
 import { deleteContact } from 'redux/contacts/contactsSlice';
+
+import { ContactListEl, Text, ButtonDel } from '../../styled';
 
 const ContactListElem = ({ contactsEl }) => {
   const dispatch = useDispatch();
